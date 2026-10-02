@@ -37,6 +37,7 @@
             text-decoration: none;
             color: #1d1d1f;
             font-size: 14px;
+            margin-left: 20px;
         }
 
         main {
@@ -107,6 +108,24 @@
             border-radius: 28px;
             text-decoration: none;
             font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .buy:hover {
+            background: #0077ed;
+        }
+
+        .cart-button {
+            display: inline-block;
+            background: #1d1d1f;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 8px;
         }
 
         .details {
@@ -135,6 +154,7 @@
         }
 
         @media (max-width: 800px) {
+
             .product-page {
                 grid-template-columns: 1fr;
                 padding: 25px;
@@ -147,6 +167,11 @@
             h1 {
                 font-size: 42px;
             }
+
+            .cart-button {
+                margin-left: 0;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -157,7 +182,10 @@
 
     <div class="logo">TERIX</div>
 
-    <a href="index.html">← Zpět na iPhony</a>
+    <div>
+        <a href="index.html">← iPhony</a>
+        <a href="cart.html">🛒 Košík</a>
+    </div>
 
 </header>
 
@@ -190,8 +218,12 @@
                 8 490 Kč
             </div>
 
-            <a href="#" class="buy">
-                Koupit
+            <button class="buy" onclick="addToCart()">
+                Přidat do košíku
+            </button>
+
+            <a href="cart.html" class="cart-button">
+                Zobrazit košík
             </a>
 
             <div class="details">
@@ -222,6 +254,28 @@
     </p>
 
 </footer>
+
+
+<script>
+
+function addToCart() {
+
+    let cart = JSON.parse(localStorage.getItem("terixCart")) || [];
+
+    cart.push({
+        name: "iPhone 15 128 GB",
+        price: 8490
+    });
+
+    localStorage.setItem(
+        "terixCart",
+        JSON.stringify(cart)
+    );
+
+    window.location.href = "cart.html";
+}
+
+</script>
 
 </body>
 </html>
