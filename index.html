@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Terix's Shop</title>
 
     <style>
@@ -23,25 +24,23 @@
             color: #1d1d1f;
         }
 
-        /* HEADER */
-
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255,255,255,0.92);
             backdrop-filter: blur(18px);
             border-bottom: 1px solid #e5e5e7;
-            padding: 15px 6%;
+            padding: 16px 6%;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
 
         nav {
@@ -50,8 +49,8 @@
         }
 
         nav a {
-            text-decoration: none;
             color: #1d1d1f;
+            text-decoration: none;
             font-size: 14px;
             font-weight: 500;
         }
@@ -60,84 +59,78 @@
             color: #0071e3;
         }
 
-        /* HERO */
-
         .hero {
-            min-height: 570px;
+            min-height: 560px;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 80px 20px;
-            background: #ffffff;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .eyebrow {
             color: #0071e3;
             font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 82px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-            margin-bottom: 25px;
+            font-size: clamp(52px, 9vw, 90px);
+            line-height: .95;
+            letter-spacing: -6px;
+            margin-bottom: 28px;
         }
 
         .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #6e6e73;
             font-size: 21px;
             line-height: 1.5;
-            color: #6e6e73;
-            max-width: 600px;
-            margin: 0 auto 35px;
+            margin-bottom: 35px;
         }
 
         .button {
             display: inline-block;
             background: #0071e3;
             color: white;
-            padding: 14px 25px;
-            border-radius: 28px;
+            padding: 15px 27px;
+            border-radius: 30px;
             text-decoration: none;
-            font-size: 15px;
             font-weight: 600;
-            transition: 0.2s;
+            transition: .2s;
         }
 
         .button:hover {
-            background: #0077ed;
             transform: scale(1.03);
+            background: #0077ed;
         }
 
-        /* PRODUCTS */
-
         .products {
-            max-width: 1250px;
+            max-width: 1300px;
             margin: auto;
             padding: 90px 25px;
         }
 
         .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 42px;
+            font-size: 45px;
             letter-spacing: -2px;
+            margin-bottom: 8px;
         }
 
         .section-title p {
             color: #6e6e73;
-            font-size: 15px;
         }
 
         .grid {
@@ -147,32 +140,32 @@
         }
 
         .product {
-            background: #ffffff;
+            background: white;
             border-radius: 28px;
-            padding: 28px;
-            overflow: hidden;
-            transition: 0.25s;
-            border: 1px solid #eeeeef;
+            padding: 24px;
+            border: 1px solid #e8e8ea;
+            transition: .25s;
         }
 
         .product:hover {
             transform: translateY(-6px);
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 18px 45px rgba(0,0,0,.08);
         }
 
         .product-image {
-            height: 310px;
+            height: 300px;
+            background: #f7f7f8;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f7f7f8;
-            border-radius: 22px;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+            overflow: hidden;
         }
 
         .product-image img {
-            width: 85%;
-            height: 85%;
+            width: 90%;
+            height: 90%;
             object-fit: contain;
         }
 
@@ -183,19 +176,19 @@
             padding: 6px 10px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
         }
 
         .product h3 {
-            font-size: 25px;
-            letter-spacing: -0.8px;
+            font-size: 24px;
             margin-bottom: 8px;
         }
 
         .description {
             color: #6e6e73;
             font-size: 14px;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
@@ -203,13 +196,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 15px;
+            gap: 10px;
         }
 
         .price {
             font-size: 21px;
             font-weight: 700;
-            white-space: nowrap;
         }
 
         .small-button {
@@ -223,41 +215,36 @@
         }
 
         .small-button:hover {
-            background: #333336;
+            background: #333;
         }
 
-        /* INFO */
-
         .info {
-            background: #ffffff;
-            padding: 75px 25px;
+            background: white;
+            padding: 85px 25px;
             text-align: center;
         }
 
         .info h2 {
-            font-size: 38px;
-            letter-spacing: -1.5px;
-            margin-bottom: 15px;
+            font-size: 40px;
+            margin-bottom: 18px;
         }
 
         .info p {
-            max-width: 650px;
+            max-width: 700px;
             margin: auto;
             color: #6e6e73;
-            line-height: 1.6;
+            line-height: 1.7;
         }
-
-        /* FOOTER */
 
         footer {
             background: #1d1d1f;
-            color: #ffffff;
-            padding: 45px 25px;
+            color: white;
             text-align: center;
+            padding: 45px 25px;
         }
 
         footer strong {
-            font-size: 20px;
+            font-size: 21px;
         }
 
         footer p {
@@ -266,11 +253,15 @@
             margin-top: 10px;
         }
 
-        /* MOBILE */
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-        @media (max-width: 800px) {
+        @media (max-width: 650px) {
             nav {
-                gap: 13px;
+                gap: 12px;
             }
 
             nav a {
@@ -279,14 +270,6 @@
 
             .grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                display: block;
-            }
-
-            .section-title p {
-                margin-top: 8px;
             }
 
             .hero h1 {
@@ -308,8 +291,11 @@
     </nav>
 </header>
 
+
 <section class="hero">
+
     <div class="hero-content">
+
         <div class="eyebrow">TERIX'S SHOP</div>
 
         <h1>Apple. Chytřeji.</h1>
@@ -322,26 +308,236 @@
         <a href="#iphony" class="button">
             Prohlédnout iPhony
         </a>
+
     </div>
+
 </section>
+
 
 <section class="products" id="iphony">
 
     <div class="section-title">
-        <div>
-            <h2>iPhony</h2>
-            <p>Aktuální nabídka Terix's Shop</p>
-        </div>
+
+        <h2>iPhony</h2>
+
+        <p>
+            Vyber si z nabídky Terix's Shop
+        </p>
+
     </div>
 
+
     <div class="grid">
+
+
+        <!-- iPhone 7 -->
 
         <div class="product">
 
             <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+7"
+                    alt="iPhone 7">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone 7</h3>
+
+            <p class="description">
+                32 GB • Černá • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">1 990 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone 8 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+8"
+                    alt="iPhone 8">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone 8</h3>
+
+            <p class="description">
+                64 GB • Stříbrná • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">2 490 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone X -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+X"
+                    alt="iPhone X">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone X</h3>
+
+            <p class="description">
+                64 GB • Space Gray • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">3 290 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone 11 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+11"
+                    alt="iPhone 11">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone 11</h3>
+
+            <p class="description">
+                64 GB • Černá • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">4 490 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone 12 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+12"
+                    alt="iPhone 12">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone 12</h3>
+
+            <p class="description">
+                64 GB • Modrá • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">5 490 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone 13 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+13"
+                    alt="iPhone 13">
+
+            </div>
+
+            <span class="tag">TOP STAV</span>
+
+            <h3>iPhone 13</h3>
+
+            <p class="description">
+                128 GB • Černá • Prověřený stav
+            </p>
+
+            <div class="bottom">
+
+                <div class="price">6 490 Kč</div>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- iPhone 14 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
                 <img
                     src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+14"
                     alt="iPhone 14">
+
             </div>
 
             <span class="tag">TOP STAV</span>
@@ -353,18 +549,28 @@
             </p>
 
             <div class="bottom">
+
                 <div class="price">6 990 Kč</div>
-                <a href="#" class="small-button">Detail</a>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
             </div>
 
         </div>
 
+
+        <!-- iPhone 15 -->
+
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+15"
+                    src="https://raw.githubusercontent.com/Terix-Official/Terix-s-Shop/main/%5BCITYPNG.COM%5DApple%20Blue%20iPhone%2015%20HD%20Transparent%20Background%20-%205000x5000.png"
                     alt="iPhone 15">
+
             </div>
 
             <span class="tag">TOP STAV</span>
@@ -372,22 +578,32 @@
             <h3>iPhone 15</h3>
 
             <p class="description">
-                128 GB • Černá • Prověřený stav
+                128 GB • Modrá • Prověřený stav
             </p>
 
             <div class="bottom">
+
                 <div class="price">8 490 Kč</div>
-                <a href="#" class="small-button">Detail</a>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
             </div>
 
         </div>
 
+
+        <!-- iPhone 16 -->
+
         <div class="product">
 
             <div class="product-image">
+
                 <img
                     src="https://placehold.co/500x500/f5f5f7/1d1d1f?text=iPhone+16"
                     alt="iPhone 16">
+
             </div>
 
             <span class="tag">TOP STAV</span>
@@ -399,14 +615,22 @@
             </p>
 
             <div class="bottom">
+
                 <div class="price">12 490 Kč</div>
-                <a href="#" class="small-button">Detail</a>
+
+                <a href="#" class="small-button">
+                    Detail
+                </a>
+
             </div>
 
         </div>
 
+
     </div>
+
 </section>
+
 
 <section class="info" id="info">
 
@@ -419,6 +643,7 @@
     </p>
 
 </section>
+
 
 <footer>
 
