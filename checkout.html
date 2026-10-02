@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objednávka | Terix's Shop</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                "SF Pro Text", Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        header {
+            background: rgba(255,255,255,.95);
+            border-bottom: 1px solid #e5e5e7;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        header a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        h1 {
+            font-size: 48px;
+            letter-spacing: -2px;
+            margin-bottom: 35px;
+        }
+
+        .box {
+            background: white;
+            border-radius: 28px;
+            padding: 35px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .summary {
+            background: #f5f5f7;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .summary h2 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .submit {
+            width: 100%;
+            border: none;
+            background: #0071e3;
+            color: white;
+            padding: 16px;
+            border-radius: 28px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background: #0077ed;
+        }
+
+        footer {
+            background: #1d1d1f;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #a1a1a6;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">TERIX</div>
+
+    <a href="cart.html">← Zpět do košíku</a>
+
+</header>
+
+
+<main>
+
+    <h1>Objednávka</h1>
+
+    <div class="box">
+
+        <div class="summary">
+
+            <h2>Vaše objednávka</h2>
+
+            <p id="order-items">
+                Načítání...
+            </p>
+
+            <p style="margin-top:10px;">
+                <strong>Celkem: <span id="total">0 Kč</span></strong>
+            </p>
+
+        </div>
+
+
+        <form id="orderForm">
+
+            <label>Jméno a příjmení</label>
+
+            <input
+                type="text"
+                name="name"
+                required
+                placeholder="Jan Novák">
+
+
+            <label>E-mail</label>
+
+            <input
+                type="email"
+                name="email"
+                required
+                placeholder="jan@email.cz">
+
+
+            <label>Telefon</label>
+
+            <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+420 123 456 789">
+
+
+            <label>Adresa</label>
+
+            <input
+                type="text"
+                name="address"
+                required
+                placeholder="Ulice 123">
+
+
+            <label>Město</label>
+
+            <input
+                type="text"
+                name="city"
+                required
+                placeholder="Praha">
+
+
+            <label>PSČ</label>
+
+            <input
+                type="text"
+                name="zip"
+                required
+                placeholder="110 00">
+
+
+            <label>Doprava</label>
+
+            <select name="shipping" required>
+
+                <option value="">
+                    Vyberte dopravu
+                </option>
+
+                <option>
+                    Zásilkovna
+                </option>
+
+                <option>
+                    Česká pošta
+                </option>
+
+                <option>
+                    Osobní předání
+                </option>
+
+            </select>
+
+
+            <label>Poznámka</label>
+
+            <textarea
+                name="note"
+                placeholder="Volitelná poznámka k objednávce"></textarea>
+
+
+            <button class="submit" type="submit">
+                Odeslat objednávku
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <strong>TERIX'S SHOP</strong>
+
+    <p>
+        © 2026 Terix's Shop • Nejsme oficiálně spojeni se společností Apple.
+    </p>
+
+</footer>
+
+
+<script>
+
+    const cart =
+        JSON.parse(localStorage.getItem("terixCart")) || [];
+
+    const items =
+        document.getElementById("order-items");
+
+    const total =
+        document.getElementById("total");
+
+    if (cart.length === 0) {
+
+        items.textContent =
+            "Košík je prázdný.";
+
+    } else {
+
+        let totalPrice = 0;
+
+        items.innerHTML = cart.map(item => {
+
+            totalPrice += item.price;
+
+            return `${item.name} — ${item.price.toLocaleString("cs-CZ")} Kč`;
+
+        }).join("<br>");
+
+        total.textContent =
+            totalPrice.toLocaleString("cs-CZ") + " Kč";
+    }
+
+
+    document
+        .getElementById("orderForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Objednávka je připravena k odeslání. Přijímání objednávek ještě nastavíme."
+            );
+
+        });
+
+</script>
+
+</body>
+</html>
